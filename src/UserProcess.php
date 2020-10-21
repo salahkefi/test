@@ -14,9 +14,20 @@ class UserProcess
     {
 
         if($user) {
-            (strpos($text, '[user:first_name]') !== false) and $text = str_replace('[user:first_name]', ucfirst(mb_strtolower($user->firstname)), $text);
+            $text = $this->patternsFirstName($text, '[user:first_name]', $user->firstname);
         }
         return $text;
+    }
 
+    /**
+     * @param string $text
+     * @param string $pattern
+     * @param string $firstName
+     * @return string|string[] $text
+     */
+    private function patternsFirstName($text,$pattern,$firstName)
+    {
+        (strpos($text, $pattern) !== false) and $text = str_replace($pattern, ucfirst(mb_strtolower($firstName)), $text);
+        return $text;
     }
 }

@@ -22,11 +22,8 @@ class QuoteProcess
             $text = $this->patternsSummary($text,'[quote:summary]', $_quoteFromRepository);
             $text = $this->patternsDestinationName($text,'[quote:destination_name]', $destinationOfQuote->countryName);
             $text = $this->patternsDestinationLink($text,'[quote:destination_link]', $destinationOfQuote->countryName,$usefulObject->url,$_quoteFromRepository->id);
-
         }
-
         return $text;
-
     }
 
     /**
@@ -42,7 +39,7 @@ class QuoteProcess
         if ($containsSummary !== false) {
             $text = str_replace(
                 '[quote:summary_html]',
-                Quote::renderText($quote),
+                Quote::renderHtml($quote),
                 $text
             );
         }
@@ -62,7 +59,7 @@ class QuoteProcess
         if ($containsSummary !== false) {
             $text = str_replace(
                 '[quote:summary]',
-                Quote::renderHtml($quote),
+                Quote::renderText($quote),
                 $text
             );
         }

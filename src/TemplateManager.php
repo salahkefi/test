@@ -29,6 +29,5 @@ class TemplateManager
         $text = UserProcess::getInstance()->computeText($text, $user);
 
         return $text;
-
     }
 }
