@@ -14,21 +14,23 @@ require_once __DIR__ . '/../src/Repository/DestinationRepository.php';
 require_once __DIR__ . '/../src/Repository/QuoteRepository.php';
 require_once __DIR__ . '/../src/Repository/SiteRepository.php';
 require_once __DIR__ . '/../src/TemplateManager.php';
+require_once __DIR__ . '/../src/UserProcess.php';
+require_once __DIR__ . '/../src/QuoteProcess.php';
 
 $faker = \Faker\Factory::create();
 
 $template = new Template(
     1,
-    'Votre voyage avec une agence locale [quote:destination_name]',
+    'Votre voyage avec une agence locale [quote:destination_name]<br>',
     "
-Bonjour [user:first_name],
+Bonjour [user:first_name],<br><br>
 
-Merci d'avoir contacté un agent local pour votre voyage [quote:destination_name].
+Merci d'avoir contacté un agent local pour votre voyage [quote:destination_name].<br><br>
 
-Bien cordialement,
+Bien cordialement,<br><br>
 
-L'équipe Evaneos.com
-www.evaneos.com
+L'équipe Evaneos.com<br>
+www.evaneos.com<br>
 ");
 $templateManager = new TemplateManager();
 
